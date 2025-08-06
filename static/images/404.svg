@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <style>
+        .st0{fill:#FFD7D7;}
+        .st1{fill:#FF6B6B;}
+        .st2{fill:#4ECDC4;}
+        .st3{fill:#1A535C;}
+        .st4{fill:#FFE66D;}
+    </style>
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    <circle cx="400" cy="300" r="200" fill="#FFD7D7"/>
+    <path class="st1" d="M300,200h200v200H300V200z M350,350h100v50H350V350z"/>
+    <circle class="st2" cx="350" cy="250" r="30"/>
+    <circle class="st2" cx="450" cy="250" r="30"/>
+    <path class="st3" d="M350,250c0,8.3-6.7,15-15,15c-8.3,0-15-6.7-15-15s6.7-15,15-15C343.3,235,350,241.7,350,250z M450,250
+        c0,8.3-6.7,15-15,15c-8.3,0-15-6.7-15-15s6.7-15,15-15C443.3,235,450,241.7,450,250z"/>
+    <path class="st4" d="M200,100l100,50 M600,100l-100,50 M200,500l100-50 M600,500l-100-50"/>
+</svg>

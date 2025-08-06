@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo/favicon.svg') }}" type="image/svg+xml">
+
+    <!-- SEO-блоки -->
+    <title>{{ meta_title|default('Full-stack разработчик сайтов в СПб | Евгения Фесик') }}</title>
+    <meta name="description"
+          content="{{ meta_description|default('Фрилансер full-stack разработчик (Python/JS) в Санкт-Петербурге.
+           Создаю сайты под ключ и MVP для бизнеса.') }}">
+    <meta name="keywords"
+          content="{{ meta_keywords|default('разработка сайтов СПб, fullstack разработчик, Python Flask разработка,
+           JavaScript разработка') }}">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ meta_title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ url_for('static', filename='images/logo/og_image.jpg', _external=True) }}">
+    <meta property="og:url" content="{{ request.url | replace('http://', 'https://') }}">
+    <meta property="og:description" content="{{ meta_description }}">
+    <meta property="og:site_name" content="Евгения Фесик - веб-разработчик">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Гео-метки -->
+    <meta name="geo.region" content="RU-SPE">
+    <meta name="geo.placename" content="Saint Petersburg">
+    <meta name="author" content="Fesik Evgeniya">
+
+    <!-- Каноническая ссылка -->
+    <link rel="canonical" href="{{ request.url | replace('http://', 'https://') }}">
+
+    <!-- Шрифты и стили -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Блок для дополнительных SEO-тегов -->
+    {% block seo_extra %}{% endblock %}
+
+    <!-- Блок для страничных стилей -->
+    {% block styles %}{% endblock %}
+</head>
+<body>
+<canvas class="background-canvas" id="background-canvas"></canvas>
+<div class="page-wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="{{ url_for('index') }}" class="logo" aria-label="Логотип Евгения Фесик">
+                    <span class="logo__icon">&#x3c;&#x2f;&#x3e;</span>
+                    <span class="logo__text">Евгения Фесик</span>
+                </a>
+                <div class="header__menu">
+                    <div class="header__actions">
+                        <a href="https://t.me/Fesik_Evgeniya" class="header__telegram" target="_blank" rel="noopener"
+                           aria-label="Telegram">
+                            <img src="{{ url_for('static', filename='images/icon/telegram_logo.svg') }}"
+                                 alt="Связь через Telegram" class="telegram-icon">
+                        </a>
+                        <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                            <span class="menu-toggle__line"></span>
+                            <span class="menu-toggle__line"></span>
+                            <span class="menu-toggle__line"></span>
+                        </button>
+                    </div>
+
+                    <ul class="nav" id="navLinks">
+                        <li class="nav__item {% if active_page == 'index' %}nav__item--active{% endif %}">
+                            <a href="{{ url_for('index') }}" class="nav__link">Главная</a>
+                        </li>
+                        <li class="nav__item {% if active_page == 'services' %}nav__item--active{% endif %}">
+                            <a href="{{ url_for('services') }}" class="nav__link">Услуги</a>
+                        </li>
+                        <li class="nav__item {% if active_page == 'portfolio' %}nav__item--active{% endif %}">
+                            <a href="{{ url_for('portfolio') }}" class="nav__link">Портфолио</a>
+                        </li>
+                        <li class="nav__item {% if active_page == 'about' %}nav__item--active{% endif %}">
+                            <a href="{{ url_for('about') }}" class="nav__link">Обо мне</a>
+                        </li>
+                        <li class="nav__item {% if active_page == 'contacts' %}nav__item--active{% endif %}">
+                            <a href="{{ url_for('contacts') }}" class="nav__link">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Основной контент страницы -->
+        {% block content %}{% endblock %}
+    </main>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <div class="footer__info">
+                <div class="footer__logo">
+                    <span class="logo__icon">&#x3c;&#x2f;&#x3e;</span>
+                    <span class="footer__logo-text">Евгения Фесик</span>
+                </div>
+                <p class="footer__tagline">Создаю цифровые решения, которые впечатляют. Санкт-Петербург</p>
+            </div>
+
+            <div class="footer__nav">
+                <h3 class="footer__heading">Навигация</h3>
+                <ul class="footer__links">
+                    <li><a href="{{ url_for('index') }}" class="footer__link">Главная</a></li>
+                    <li><a href="{{ url_for('services') }}" class="footer__link">Услуги</a></li>
+                    <li><a href="{{ url_for('portfolio') }}" class="footer__link">Портфолио</a></li>
+                    <li><a href="{{ url_for('about') }}" class="footer__link">Обо мне</a></li>
+                    <li><a href="{{ url_for('contacts') }}" class="footer__link">Контакты</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__contact">
+                <h3 class="footer__heading">Контакты в Санкт-Петербурге</h3>
+                <ul class="footer__links">
+                    <li>
+                        <a href="mailto:ganef85@mail.ru" class="footer__link">
+                            <i class="fas fa-envelope footer__icon"></i>
+                            ganef85@mail.ru
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/Fesik_Evgeniya" class="footer__link" rel="noopener">
+                            <i class="fab fa-telegram-plane footer__icon"></i>
+                            @Fesik_Evgeniya
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/fesik-evgenya" class="footer__link" rel="noopener"
+                           aria-label="GitHub">
+                            <i class="fab fa-github footer__icon"></i>
+                            GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="footer__copyright">
+                &copy;2025 Евгения Фесик, Санкт-Петербург.<br>Все права защищены.
+            </div>
+            <div class="footer__seo-links">
+                <a href="{{ url_for('sitemap') }}">Карта сайта</a>
+                <span class="separator">|</span>
+                <a href="{{ url_for('privacy') }}">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Скрипты -->
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% block scripts %}{% endblock %}
+
+<!-- Микроразметка в футере -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Евгения Фесик",
+        "jobTitle": "Full-stack разработчик",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Санкт-Петербург",
+            "addressCountry": "RU",
+            "postalCode": "190000"
+        },
+        "description": "Фрилансер full-stack разработчик (Python/JS) в Санкт-Петербурге. Создаю сайты под ключ и MVP для бизнеса.",
+        "url": "{{ request.url_root }}",
+        "image": "{{ url_for('static', filename='images/photo.jpg', _external=True) }}",
+        "sameAs": [
+            "https://github.com/fesik-evgenya",
+            "https://t.me/Fesik_Evgeniya"
+        ]
+    }
+</script>
+</body>
+</html>

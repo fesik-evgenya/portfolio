@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block h1_container %}
+{# Скрываем стандартный H1 для главной страницы #}
+{% set hide_default_h1 = true %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero__content">
+            <!-- Основной H1 страницы -->
+            <h1 class="hero__title">{{ h1 }}</h1>
+            <p class="hero__text">Создаю современные сайты и MVP для бизнеса — быстро, качественно, с фиксированной стоимостью</p>
+            <div class="hero__cta">
+                <p class="hero__cta-text">Превращаю ваши идеи в рабочие сайты</p>
+                <div class="hero__buttons">
+                    <a href="{{ url_for('contacts') }}" class="btn btn--primary">Обсудить проект</a>
+                    <a href="{{ url_for('portfolio') }}" class="btn btn--outline">Смотреть кейсы</a>
+                </div>
+            </div>
+
+            <!-- Блок УТП -->
+            <div class="hero__usp">
+                <div class="usp-item">
+                    <i class="fas fa-rocket usp-icon"></i>
+                    <span>Стартапы и малый бизнес</span>
+                </div>
+                <div class="usp-item">
+                    <i class="fas fa-handshake usp-icon"></i>
+                    <span>Личные встречи в СПб</span>
+                </div>
+                <div class="usp-item">
+                    <i class="fas fa-ruble-sign usp-icon" ></i>
+                    <span>Фиксированная стоимость</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Секция услуг -->
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">Услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Сайты под ключ</h3>
+                <p>Полный цикл разработки на Python/JS</p>
+                <ul>
+                    <li>Лендинги</li>
+                    <li>Интернет-магазины</li>
+                    <li>Корпоративные сайты</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>MVP для стартапов</h3>
+                <p>Запуск за 4 недели</p>
+                <ul>
+                    <li>Прототипирование</li>
+                    <li>Быстрая разработка</li>
+                    <li>Оптимизация бюджета</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Техническая поддержка</h3>
+                <p>Для сайтов на Python</p>
+                <ul>
+                    <li>Исправление ошибок</li>
+                    <li>Доработка функционала</li>
+                    <li>Оптимизация скорости</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

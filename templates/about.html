@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block seo_extra %}
+    <!-- Дополнительная микроразметка для отзывов -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Евгения Фесик",
+        "jobTitle": "Full-stack разработчик",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Санкт-Петербург",
+            "addressCountry": "RU"
+        },
+        "description": "Профессиональный full-stack разработчик с опытом создания веб-приложений на Python и JavaScript",
+        "url": "{{ request.url_root }}o-mne",
+        "image": "{{ url_for('static', filename='images/photo.jpg', _external=True) }}",
+        "sameAs": [
+            "https://github.com/fesik-evgenya",
+            "https://t.me/Fesik_Evgeniya"
+        ]
+    }
+    </script>
+{% endblock %}
+
+{% block content %}
+<section class="about">
+    <div class="container">
+        <div class="about__content">
+            <div class="about__text">
+                <h2>Full-stack разработчик из Санкт-Петербурга</h2>
+                <p>Меня зовут Евгения Фесик, я профессиональный веб-разработчик с опытом создания современных веб-приложений на Python и JavaScript. Специализируюсь на разработке сайтов под ключ для малого бизнеса и стартапов в Санкт-Петербурге.</p>
+                
+                <h3>Мой опыт в веб-разработке</h3>
+                <p>Более 5 лет создаю решения для бизнеса в Санкт-Петербурге. Мои основные компетенции:</p>
+                <ul>
+                    <li>Полный цикл разработки сайтов под ключ</li>
+                    <li>Создание MVP для стартапов (запуск за 4 недели)</li>
+                    <li>Backend-разработка на Python (Flask, Django)</li>
+                    <li>Frontend: JavaScript, адаптивная верстка</li>
+                    <li>Оптимизация скорости загрузки сайтов</li>
+                    <li>Техническая поддержка и доработка</li>
+                </ul>
+                
+                <h3>Почему клиенты из СПб выбирают меня</h3>
+                <div class="usp-grid">
+                    <div class="usp-card">
+                        <i class="fas fa-map-marker-alt usp-icon"></i>
+                        <h4>Локальный специалист</h4>
+                        <p>Личные встречи в Санкт-Петербурге, понимание локального рынка</p>
+                    </div>
+                    <div class="usp-card">
+                        <i class="fas fa-ruble-sign usp-icon"></i>
+                        <h4>Фиксированная стоимость</h4>
+                        <p>Четкое ТЗ и прозрачное ценообразование без скрытых платежей</p>
+                    </div>
+                    <div class="usp-card">
+                        <i class="fas fa-rocket usp-icon"></i>
+                        <h4>Быстрый запуск</h4>
+                        <p>Средний срок создания лендинга - 2 недели, MVP - 4 недели</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about__image">
+                <img src="{{ url_for('static', filename='images/photo.jpg') }}" 
+                     alt="Евгения Фесик - full-stack разработчик сайтов в Санкт-Петербурге" 
+                     loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Блок с отзывами -->
+        <div class="reviews">
+            <h2>Отзывы клиентов из Санкт-Петербурга</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ИК</div>
+                        <div class="review-author">
+                            <strong>Иван К.</strong>
+                            <span>Стартап в сфере e-commerce, СПб</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Заказали разработку MVP интернет-магазина. Евгения выполнила работу за 5 недель - уложились в бюджет и сроки. Особенно впечатлило внимание к SEO-оптимизации. После запуска сразу получили первых клиентов из поиска!"</p>
+                    </div>
+                    <div class="review-footer">
+                        <span class="review-date">15 марта 2025</span>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ОС</div>
+                        <div class="review-author">
+                            <strong>Ольга С.</strong>
+                            <span>Владелец студии красоты, СПб</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Нужен был сайт-визитка для новой студии. Евгения не просто создала сайт, но и предложила решения по повышению конверсии. Через 2 месяца 40% клиентов приходит через сайт! Личные встречи в СПб сделали процесс разработки особенно комфортным."</p>
+                    </div>
+                    <div class="review-footer">
+                        <span class="review-date">3 февраля 2025</span>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reviews-cta">
+                <p>Хотите такой же результат для вашего бизнеса в Санкт-Петербурге?</p>
+                <a href="{{ url_for('contacts') }}" class="btn btn-primary">Обсудить проект</a>
+            </div>
+        </div>
+        
+        <!-- Блог/полезные материалы -->
+        <div class="blog-preview">
+            <h2>Полезные материалы для бизнеса в СПб</h2>
+            <div class="blog-grid">
+                <a href="/blog/kak-vybrat-frilansera-dlya-sajta-v-spb" class="blog-card">
+                    <h3>Как выбрать фрилансера для сайта в СПб</h3>
+                    <p>7 критериев выбора надежного исполнителя для создания сайта вашего бизнеса</p>
+                </a>
+                <a href="/blog/preimuschestva-mvp-dlya-startapa" class="blog-card">
+                    <h3>Преимущества MVP для стартапа</h3>
+                    <p>Как запустить бизнес с минимальными вложениями и проверить идею на реальных клиентах</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

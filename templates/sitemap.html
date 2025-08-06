@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="container sitemap">
+    <h1 class="page-title">Карта сайта</h1>
+
+    <div class="sitemap-section">
+        <h2><i class="fas fa-sitemap"></i> Основные разделы</h2>
+        <ul class="sitemap-list">
+            {% for page in pages %}
+            <li>
+                <a href="{{ page.url }}">{{ page.title }}</a>
+                <span class="sitemap-date">Обновлено: {{ page.lastmod }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="sitemap-section">
+        <h2><i class="fas fa-shopping-cart"></i> Услуги</h2>
+        <ul class="sitemap-list">
+            <li><a href="{{ url_for('ecommerce') }}">Интернет-магазины</a></li>
+            <li><a href="{{ url_for('mvp') }}">MVP для стартапов</a></li>
+            <!-- Остальные услуги -->
+        </ul>
+    </div>
+</section>
+{% endblock %}

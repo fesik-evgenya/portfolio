@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="container privacy-policy">
+    <h1 class="page-title">Политика конфиденциальности</h1>
+    
+    <div class="policy-section">
+        <h2>1. Сбор информации</h2>
+        <p>Мы собираем только информацию, необходимую для обработки ваших запросов...</p>
+    </div>
+    
+    <div class="policy-section">
+        <h2>2. Использование данных</h2>
+        <p>Ваши данные используются исключительно для связи с вами и предоставления услуг...</p>
+    </div>
+    
+    <div class="policy-section">
+        <h2>3. Защита информации</h2>
+        <p>Мы используем современные методы шифрования и защиты данных...</p>
+    </div>
+    
+    <div class="policy-update">
+        <p><strong>Последнее обновление:</strong> {{ now.strftime('%d.%m.%Y') }}</p>
+    </div>
+</section>
+{% endblock %}
