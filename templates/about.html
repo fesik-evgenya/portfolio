@@ -25,122 +25,193 @@
 {% endblock %}
 
 {% block content %}
-<section class="about">
+<section class="about-section">
     <div class="container">
+        <h1 class="page-title">О моем пути в разработке</h1>
+
+        <!-- Biography Section -->
         <div class="about__content">
             <div class="about__text">
-                <h2>Full-stack разработчик из Санкт-Петербурга</h2>
-                <p>Меня зовут Евгения Фесик, я профессиональный веб-разработчик с опытом создания современных веб-приложений на Python и JavaScript. Специализируюсь на разработке сайтов под ключ для малого бизнеса и стартапов в Санкт-Петербурге.</p>
-                
-                <h3>Мой опыт в веб-разработке</h3>
-                <p>Более 5 лет создаю решения для бизнеса в Санкт-Петербурге. Мои основные компетенции:</p>
-                <ul>
-                    <li>Полный цикл разработки сайтов под ключ</li>
-                    <li>Создание MVP для стартапов (запуск за 4 недели)</li>
-                    <li>Backend-разработка на Python (Flask, Django)</li>
-                    <li>Frontend: JavaScript, адаптивная верстка</li>
-                    <li>Оптимизация скорости загрузки сайтов</li>
-                    <li>Техническая поддержка и доработка</li>
+                <h2>Биография</h2>
+                <div class="about__image-container">
+                    <img src="{{ url_for('static', filename='images/about_photo.png') }}"
+                         alt="Евгения Фесик, full-stack разработчик в Санкт-Петербурге"
+                         class="about__image" width="550" height="733" loading="lazy">
+                </div>
+
+                <p>Привет!<br>Я Евгения Фесик, full-stack разработчик из Санкт-Петербурга. Специализируюсь на создании
+                    современных веб-решений для бизнеса с использованием Python и JavaScript.</p>
+
+                <h3>Мой путь в IT</h3>
+                <p>Мой профессиональный путь начался с фундаментального технического образования и продолжился в сфере
+                    разработки, где я смогла объединить аналитическое мышление и творческий подход к решению задач.</p>
+
+                <h3>Образование и квалификация</h3>
+                <ul class="about__list">
+                    <li><strong>СПБ Колледж Радиоэлектронного Приборостроения</strong> (2005) - "Программное обеспечение
+                        вычислительной техники и автоматизированных систем"
+                    </li>
+                    <li><strong>СПб Государственный Политехнический Университет</strong> (2008) - Экономики и
+                        менеджмента / Менеджмент организаций
+                    </li>
+                    <li><strong>Аналитик данных</strong> (2024) - "С нуля до разработки прикладных решений для бизнеса",
+                        Томский Государственный Университет (256 ак.ч.)
+                    </li>
+                    <li><strong>Повышение квалификации</strong> (2025) - "Программирование и создание IT-продуктов на
+                        языке Python", ИПАП, Санкт-Петербург (200 ак.ч.)
+                    </li>
                 </ul>
-                
-                <h3>Почему клиенты из СПб выбирают меня</h3>
-                <div class="usp-grid">
-                    <div class="usp-card">
-                        <i class="fas fa-map-marker-alt usp-icon"></i>
-                        <h4>Локальный специалист</h4>
-                        <p>Личные встречи в Санкт-Петербурге, понимание локального рынка</p>
+
+                <p>Постоянно совершенствую свои навыки через курсы и практику, чтобы предлагать клиентам в
+                    Санкт-Петербурге самые современные решения.</p>
+            </div>
+
+            <!-- Work Philosophy Section -->
+            <div class="about__text">
+                <h2>Философия работы</h2>
+
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <h3>Код ≠ цель. Решаю бизнес-задачи</h3>
+                        <p>Фокусируюсь на том, как технологии могут помочь вашему бизнесу расти, а не просто на
+                            написании кода. Каждая строка кода — это шаг к решению вашей конкретной задачи.</p>
                     </div>
-                    <div class="usp-card">
-                        <i class="fas fa-ruble-sign usp-icon"></i>
-                        <h4>Фиксированная стоимость</h4>
-                        <p>Четкое ТЗ и прозрачное ценообразование без скрытых платежей</p>
+
+                    <div class="philosophy-card">
+                        <h3>Минимум технического жаргона</h3>
+                        <p>Объясняю сложные вещи простыми словами. Вы будете в курсе процесса без лишней терминологии и
+                            технических сложностей.</p>
                     </div>
-                    <div class="usp-card">
-                        <i class="fas fa-rocket usp-icon"></i>
-                        <h4>Быстрый запуск</h4>
-                        <p>Средний срок создания лендинга - 2 недели, MVP - 4 недели</p>
+
+                    <div class="philosophy-card">
+                        <h3>Прозрачность этапов и сроков</h3>
+                        <p>Четкие этапы работы, понятные сроки и регулярная отчетность. Никаких неожиданностей — только
+                            предсказуемый результат.</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="about__image">
-                <img src="{{ url_for('static', filename='images/photo.jpg') }}" 
-                     alt="Евгения Фесик - full-stack разработчик сайтов в Санкт-Петербурге" 
-                     loading="lazy">
+
+                <h3>Рабочий процесс</h3>
+                <p>Мой подход сочетает техническую экспертизу и понимание бизнес-процессов, что позволяет создавать
+                    решения, которые действительно работают на ваши цели.</p>
+
+                <!-- Workstation Section -->
+                <h2>Инструменты и технологии</h2>
+                <div class="workflow">
+                    <img src="{{ url_for('static', filename='images/workstation.webp') }}"
+                         alt="Рабочее место веб-разработчика в Санкт-Петербурге с Python кодом">
+
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <img src="{{ url_for('static', filename='images/icon/python.svg') }}" alt="Python">
+                            <span>Python</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="{{ url_for('static', filename='images/icon/flask.svg') }}" alt="Flask">
+                            <span>Flask</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="{{ url_for('static', filename='images/icon/JavaScript.svg') }}" alt="JavaScript">
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="{{ url_for('static', filename='images/icon/html5.svg') }}" alt="HTML5">
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="{{ url_for('static', filename='images/icon/css3.svg') }}" alt="CSS3">
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="{{ url_for('static', filename='images/icon/figma.svg') }}" alt="Figma">
+                            <span>Figma</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <!-- Блок с отзывами -->
-        <div class="reviews">
-            <h2>Отзывы клиентов из Санкт-Петербурга</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">ИК</div>
-                        <div class="review-author">
-                            <strong>Иван К.</strong>
-                            <span>Стартап в сфере e-commerce, СПб</span>
-                        </div>
-                    </div>
-                    <div class="review-content">
-                        <p>"Заказали разработку MVP интернет-магазина. Евгения выполнила работу за 5 недель - уложились в бюджет и сроки. Особенно впечатлило внимание к SEO-оптимизации. После запуска сразу получили первых клиентов из поиска!"</p>
-                    </div>
-                    <div class="review-footer">
-                        <span class="review-date">15 марта 2025</span>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">ОС</div>
-                        <div class="review-author">
-                            <strong>Ольга С.</strong>
-                            <span>Владелец студии красоты, СПб</span>
-                        </div>
-                    </div>
-                    <div class="review-content">
-                        <p>"Нужен был сайт-визитка для новой студии. Евгения не просто создала сайт, но и предложила решения по повышению конверсии. Через 2 месяца 40% клиентов приходит через сайт! Личные встречи в СПб сделали процесс разработки особенно комфортным."</p>
-                    </div>
-                    <div class="review-footer">
-                        <span class="review-date">3 февраля 2025</span>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+
+        <!-- Reviews Section -->
+        <section class="reviews">
+<!--            <h2>Отзывы клиентов из Санкт-Петербурга</h2>-->
+<!--            <p class="section-subtitle">Реальные мнения предпринимателей, с которыми я сотрудничала</p>-->
+
+            <!--            &lt;!&ndash; Video Testimonial &ndash;&gt;-->
+            <!--            &lt;!&ndash; oid - ID владельца видео (для групп: -group_id, для пользователей: user_id) &ndash;&gt;-->
+            <!--            &lt;!&ndash; id - ID видео &ndash;&gt;-->
+            <!--            &lt;!&ndash; hash - дополнительный хеш (можно получить из оригинальной ссылки на видео) &ndash;&gt;-->
+            <!--            <div class="video-review">-->
+            <!--                <iframe src="https://vk.com/video_ext.php?oid=-12345678&id=456239037&hash=abc123def456"-->
+            <!--                        title="Видео-отзыв о работе веб-разработчика в СПб"-->
+            <!--                        allow="autoplay; encrypted-media; fullscreen"-->
+            <!--                        allowfullscreen>-->
+            <!--                </iframe>-->
+            <!--            </div>-->
+
+<!--            &lt;!&ndash; Text Reviews &ndash;&gt;-->
+<!--            <div class="reviews-grid">-->
+<!--                <div class="review-card">-->
+<!--                    <div class="review-header">-->
+<!--                        <div class="review-avatar">АК</div>-->
+<!--                        <div class="review-author">-->
+<!--                            <strong>Александр К.</strong>-->
+<!--                            <span>Стартап, e-commerce</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="review-content">-->
+<!--                        <p>Евгения создала для нас MVP интернет-магазина за короткий срок. Все пожелания были учтены,-->
+<!--                            работа выполнена качественно. Как предприниматель из Санкт-Петербурга рекомендую как-->
+<!--                            ответственного разработчика!</p>-->
+<!--                    </div>-->
+<!--                    <div class="review-footer">-->
+<!--                        <div class="review-date">Май, 2025</div>-->
+<!--                        <div class="review-rating">★★★★★</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="review-card">-->
+<!--                    <div class="review-header">-->
+<!--                        <div class="review-avatar">ОС</div>-->
+<!--                        <div class="review-author">-->
+<!--                            <strong>Ольга С.</strong>-->
+<!--                            <span>Студия дизайна, СПб</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="review-content">-->
+<!--                        <p>Заказывали корпоративный сайт. Евгения не только профессионально выполнила техническую часть,-->
+<!--                            но и дала ценные советы по UX. Отличный пример сотрудничества в Санкт-Петербурге!</p>-->
+<!--                    </div>-->
+<!--                    <div class="review-footer">-->
+<!--                        <div class="review-date">Апрель, 2025</div>-->
+<!--                        <div class="review-rating">★★★★★</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="review-card">-->
+<!--                    <div class="review-header">-->
+<!--                        <div class="review-avatar">МП</div>-->
+<!--                        <div class="review-author">-->
+<!--                            <strong>Михаил П.</strong>-->
+<!--                            <span>IT-стартап</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="review-content">-->
+<!--                        <p>Работали над сложным веб-приложением. Евгения показала себя как настоящий профессионал-->
+<!--                            full-stack разработки. Все сроки соблюдены, код качественный. Буду рекомендовать коллегам в-->
+<!--                            СПб!</p>-->
+<!--                    </div>-->
+<!--                    <div class="review-footer">-->
+<!--                        <div class="review-date">Март, 2025</div>-->
+<!--                        <div class="review-rating">★★★★★</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
             <div class="reviews-cta">
-                <p>Хотите такой же результат для вашего бизнеса в Санкт-Петербурге?</p>
-                <a href="{{ url_for('contacts') }}" class="btn btn-primary">Обсудить проект</a>
+                <p>Хотите качественный результат для своего проекта?</p>
+                <a href="{{ url_for('contacts') }}" class="btn btn--primary">Обсудить ваш проект</a>
+                <a href="{{ url_for('portfolio') }}" class="btn btn--outline">Смотреть кейсы</a>
             </div>
-        </div>
-        
-        <!-- Блог/полезные материалы -->
-        <div class="blog-preview">
-            <h2>Полезные материалы для бизнеса в СПб</h2>
-            <div class="blog-grid">
-                <a href="/blog/kak-vybrat-frilansera-dlya-sajta-v-spb" class="blog-card">
-                    <h3>Как выбрать фрилансера для сайта в СПб</h3>
-                    <p>7 критериев выбора надежного исполнителя для создания сайта вашего бизнеса</p>
-                </a>
-                <a href="/blog/preimuschestva-mvp-dlya-startapa" class="blog-card">
-                    <h3>Преимущества MVP для стартапа</h3>
-                    <p>Как запустить бизнес с минимальными вложениями и проверить идею на реальных клиентах</p>
-                </a>
-            </div>
-        </div>
+        </section>
     </div>
 </section>
 {% endblock %}

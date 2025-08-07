@@ -227,3 +227,33 @@ function animate() {
 
 // Запускаем анимацию
 animate();
+
+// Взаимодействие с видео-отзывами
+document.addEventListener('DOMContentLoaded', () => {
+    // Отложенная загрузка видео
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const iframe = entry.target.querySelector('iframe');
+                if (iframe && !iframe.src) {
+                    iframe.src = iframe.dataset.src;
+                }
+                videoObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const videoContainer = document.querySelector('.video-review');
+    if (videoContainer) {
+        videoObserver.observe(videoContainer);
+    }
+
+    // Tooltips for skills
+    const toolItems = document.querySelectorAll('.tool-item');
+    toolItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const toolName = item.querySelector('span').textContent;
+            alert(`Подробнее о работе с ${toolName} в моих проектах`);
+        });
+    });
+});
