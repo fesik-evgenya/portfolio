@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% set meta_title = "404 - Страница не найдена | Full-stack разработчик" %}
-{% set meta_description = "Запрашиваемая страница не найдена. Вернитесь на главную или ознакомьтесь с моими услугами по разработке сайтов под ключ." %}
+{% set meta_description = "Запрашиваемая страница не найдена. Вернитесь на главную или ознакомьтесь с моими услугами
+по разработке сайтов под ключ." %}
 {% set hide_default_h1 = true %}
 
 {% block content %}
@@ -17,15 +18,13 @@
             
             <div class="error__actions">
                 <a href="{{ url_for('index') }}" class="btn btn--primary">На главную</a>
-                <a href="{{ url_for('services') }}" class="btn btn--outline">Мои услуги</a>
+                <a href="{{ url_for('solutions') }}" class="btn btn--outline">Магазин решений</a>
                 <a href="{{ url_for('portfolio') }}" class="btn btn--outline">Портфолио</a>
             </div>
             
             <div class="error__links">
                 <a href="{{ url_for('about') }}" class="error__link">Обо мне</a>
                 <a href="{{ url_for('contacts') }}" class="error__link">Контакты</a>
-                <a href="{{ url_for('services') }}#development" class="error__link">Разработка сайтов</a>
-                <a href="{{ url_for('services') }}#mvp" class="error__link">Создание MVP</a>
             </div>
         </div>
     </div>

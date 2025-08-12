@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container project-detail">
+    <div class="project-gallery">
+        {% for image in project.images %}
+        <img src="{{ url_for('static', filename='projects/' + image) }}" alt="{{ project.title }}">
+        {% endfor %}
+    </div>
+    
+    <h1>{{ project.title }}</h1>
+    <p class="project-geo">{{ project.geo }}</p>
+    
+    <div class="project-meta">
+        <p><strong>Категория:</strong> {{ project.category }}</p>
+        <p><strong>Пакет:</strong> {{ project.package }}</p>
+        <p><strong>Срок разработки:</strong> {{ project.duration }}</p>
+    </div>
+    
+    <div class="project-features">
+        <h2>Функционал:</h2>
+        <ul>
+            {% for feature in project.features %}
+            <li>{{ feature }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <blockquote class="project-testimonial">
+        <p>"{{ project.testimonial }}"</p>
+        <cite>{{ project.client }}</cite>
+    </blockquote>
+    
+    <div class="project-actions">
+        <a href="{{ project.live_url }}" target="_blank" class="btn btn--primary">
+            Посмотреть сайт
+        </a>
+        <a href="{{ url_for('portfolio') }}" class="btn btn--outline">
+            Вернуться к портфолио
+        </a>
+    </div>
+</div>
+{% endblock %}

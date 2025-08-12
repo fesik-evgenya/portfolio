@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block seo_extra %}
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ url_for('contacts', _external=True) }}">
+{% endblock %}
+
+{% block content %}
+<section class="contacts-section">
+    <div class="container">
+        <h1 class="page-title">Давайте создадим ваш проект вместе</h1>
+
+        <div class="contacts-grid">
+            <!-- Способы связи -->
+            <div class="contacts-card">
+                <h2 class="section-title">Способы связи</h2>
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <i class="fab fa-telegram contact-icon"></i>
+                        <div>
+                            <h3>Telegram</h3>
+                            <a href="https://t.me/Fesik_Evgeniya" target="_blank" rel="noopener" class="contact-link">
+                                @Fesik_Evgeniya
+                            </a>
+                            <p class="contact-note">Основной канал связи</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <a href="mailto:ganef85@mail.ru" class="contact-link">
+                                ganef85@mail.ru
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <div>
+                            <h3>Телефон</h3>
+                            <a href="tel:+79500124011" class="contact-link">
+                                +7 (950) 012-40-11
+                            </a>
+                            <p class="contact-note">Только для личных встреч</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meeting-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Личные встречи только после онлайн-согласования ТЗ</p>
+                </div>
+            </div>
+
+            <!-- Форма обратной связи -->
+            <div class="contacts-card">
+                <h2 class="section-title">Обсудим ваш проект?</h2>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact">Телеграм или email</label>
+                        <input type="text" id="contact" name="contact" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-type">Тип проекта</label>
+                        <select id="project-type" name="project-type" required>
+                            <option value="" disabled selected>Выберите тип проекта</option>
+                            <option value="startup-launch">Стартап-Лаунч</option>
+                            <option value="profi-portfolio">Профи-Портфолио</option>
+                            <option value="mini-store">Магазин-Мини</option>
+                            <option value="clinic-salon">Клиника / Салон</option>
+                            <option value="coffee_shop-cafe">Кофейня / Кафе</option>
+                            <option value="agency-atelier">Агентство / Студия</option>
+                            <option value="other">другое</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary">
+                        Получить оценку сроков
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Карта и график -->
+        <div class="map-schedule">
+            <div class="map-container">
+                <h2 class="section-title">Возможны встречи в этих районах</h2>
+                <div id="map" class="map"></div>
+                <p class="map-note">Район: Все</p>
+            </div>
+
+            <div class="schedule-container">
+                <h2 class="section-title">График</h2>
+                <div class="schedule-card">
+                    <i class="far fa-clock schedule-icon"></i>
+                    <div>
+                        <p class="schedule-hours">Пн-Пт, 10:00-18:00</p>
+                        <p class="schedule-note">
+                            <i class="fab fa-telegram-plane"></i>
+                            Ответ в Telegram в течение 1 часа в рабочее время
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- сообщение, что письмо отправлено успешно -->
+<div class="custom-modal" id="successModal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div class="modal-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h3>Сообщение отправлено!</h3>
+        <p>Ваш запрос успешно отправлен. Я свяжусь с вами в ближайшее время через указанные контакты.</p>
+        <button class="btn btn--primary modal-confirm">Хорошо</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://api-maps.yandex.ru/2.1/?apikey=cd75c453-5925-4862-8f2e-acd46e2b692a&lang=ru_RU"
+        type="text/javascript"></script>
+{% endblock %}

@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block seo_extra %}
+<!-- Дополнительные SEO-теги для страницы портфолио -->
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="ru" href="{{ request.url | replace('http://', 'https://') }}"/>
+{% endblock %}
+
+{% block content %}
+<!-- Герой-секция -->
+<section class="portfolio-hero">
+    <div class="container">
+        <h1 class="page-title">Мои работы для бизнеса Санкт-Петербурга</h1>
+        <p class="hero__text">Реальные кейсы пакетных сайтов, запущенных за 14 дней.<br> Каждый проект адаптирован под
+            специфику бизнеса клиента.</p>
+
+        <!-- Фильтры по категориям -->
+        <div class="portfolio-filters">
+            <button class="btn btn--outline active" data-filter="all">Все проекты</button>
+            <button class="btn btn--outline" data-filter="startap">Стартап-Лаунч</button>
+            <button class="btn btn--outline" data-filter="profi">Профи-Портфолио</button>
+            <button class="btn btn--outline" data-filter="magazin">Магазин-Мини</button>
+            <button class="btn btn--outline" data-filter="kofeynya">Кофейня-Бистро</button>
+            <button class="btn btn--outline" data-filter="uslugi">Услуги-Мастер</button>
+            <button class="btn btn--outline" data-filter="salon">Салон-Клиника</button>
+            <button class="btn btn--outline" data-filter="agentstvo">Агентство-Студия</button>
+            <button class="btn btn--outline" data-filter="other">Индивидуальный проект</button>
+        </div>
+    </div>
+</section>
+
+<!-- Сетка проектов -->
+<section class="portfolio-grid-section">
+    <div class="container">
+        <div class="portfolio-grid">
+
+            <!-- Карточка проекта 1 -->
+            <div class="portfolio-card" data-category="kofeynya" data-id="1">
+                <div class="portfolio-card__image">
+                    <img src="{{ url_for('static', filename='projects/coffee-shop.jpg') }}"
+                         alt="Сайт для кофейни Булочная №1 на Васильевском острове">
+                    <div class="portfolio-card__overlay">
+                        <a href="{{ url_for('portfolio_detail', slug='coffee-bakery') }}" class="btn btn--primary">Подробнее</a>
+                    </div>
+                </div>
+                <div class="portfolio-card__content">
+                    <span class="portfolio-card__category">Кафе / Бистро</span>
+                    <h3 class="portfolio-card__title">Кофейня "Булочная №1"</h3>
+                    <p class="portfolio-card__desc">Сайт с онлайн-меню, бронированием столиков и геолокацией</p>
+                    <div class="portfolio-card__meta">
+                        <span>Срок: 12 дней</span>
+                        <span>Пакет: "Кофейня-Бистро"</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка проекта 2 -->
+            <div class="portfolio-card" data-category="salon" data-id="2">
+                <div class="portfolio-card__image">
+                    <img src="{{ url_for('static', filename='projects/beauty-salon.jpg') }}"
+                         alt="Сайт для салона красоты Glamour в центре СПб">
+                    <div class="portfolio-card__overlay">
+                        <a href="{{ url_for('portfolio_detail', slug='glamour-salon') }}" class="btn btn--primary">Подробнее</a>
+                    </div>
+                </div>
+                <div class="portfolio-card__content">
+                    <span class="portfolio-card__category">Салон красоты</span>
+                    <h3 class="portfolio-card__title">Салон "Glamour"</h3>
+                    <p class="portfolio-card__desc">Сайт с онлайн-записью, галереей работ и акциями</p>
+                    <div class="portfolio-card__meta">
+                        <span>Срок: 14 дней</span>
+                        <span>Пакет: "Премиум"</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка проекта 3 -->
+            <div class="portfolio-card" data-category="magazin" data-id="3">
+                <div class="portfolio-card__image">
+                    <img src="{{ url_for('static', filename='projects/flower-shop.jpg') }}"
+                         alt="Сайт для цветочного магазина Flora в СПб">
+                    <div class="portfolio-card__overlay">
+                        <a href="{{ url_for('portfolio_detail', slug='flora-flowers') }}" class="btn btn--primary">Подробнее</a>
+                    </div>
+                </div>
+                <div class="portfolio-card__content">
+                    <span class="portfolio-card__category">Магазин</span>
+                    <h3 class="portfolio-card__title">Магазин "Flora"</h3>
+                    <p class="portfolio-card__desc">Интернет-магазин цветов с доставкой по СПб</p>
+                    <div class="portfolio-card__meta">
+                        <span>Срок: 18 дней</span>
+                        <span>Пакет: "Интернет-магазин"</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка проекта 4 -->
+            <div class="portfolio-card" data-category="uslugi" data-id="4">
+                <div class="portfolio-card__image">
+                    <img src="{{ url_for('static', filename='projects/cleaning-service.jpg') }}"
+                         alt="Сайт для клининговой компании Чистый Дом">
+                    <div class="portfolio-card__overlay">
+                        <a href="{{ url_for('portfolio_detail', slug='clean-house') }}" class="btn btn--primary">Подробнее</a>
+                    </div>
+                </div>
+                <div class="portfolio-card__content">
+                    <span class="portfolio-card__category">Услуги</span>
+                    <h3 class="portfolio-card__title">"Чистый Дом"</h3>
+                    <p class="portfolio-card__desc">Сайт для клининговой компании с калькулятором услуг</p>
+                    <div class="portfolio-card__meta">
+                        <span>Срок: 10 дней</span>
+                        <span>Пакет: "Стандарт"</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка проекта 5 -->
+            <div class="portfolio-card" data-category="kofeynya" data-id="5">
+                <div class="portfolio-card__image">
+                    <img src="{{ url_for('static', filename='projects/bakery.jpg') }}" alt="Сайт для пекарни Хлеб&Ко">
+                    <div class="portfolio-card__overlay">
+                        <a href="{{ url_for('portfolio_detail', slug='hleb-i-ko') }}"
+                           class="btn btn--primary">Подробнее</a>
+                    </div>
+                </div>
+                <div class="portfolio-card__content">
+                    <span class="portfolio-card__category">Пекарня</span>
+                    <h3 class="portfolio-card__title">"Хлеб&Ко"</h3>
+                    <p class="portfolio-card__desc">Сайт для пекарни с онлайн-заказом выпечки</p>
+                    <div class="portfolio-card__meta">
+                        <span>Срок: 9 дней</span>
+                        <span>Пакет: "Кофейня-Бистро"</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка проекта 6 -->
+            <div class="portfolio-card" data-category="salon" data-id="6">
+                <div class="portfolio-card__image">
+                    <img src="{{ url_for('static', filename='projects/barber-shop.jpg') }}"
+                         alt="Сайт для барбершопа Old School">
+                    <div class="portfolio-card__overlay">
+                        <a href="{{ url_for('portfolio_detail', slug='old-school-barber') }}" class="btn btn--primary">Подробнее</a>
+                    </div>
+                </div>
+                <div class="portfolio-card__content">
+                    <span class="portfolio-card__category">Барбершоп</span>
+                    <h3 class="portfolio-card__title">"Old School"</h3>
+                    <p class="portfolio-card__desc">Сайт для мужской парикмахерской с онлайн-записью</p>
+                    <div class="portfolio-card__meta">
+                        <span>Срок: 11 дней</span>
+                        <span>Пакет: "Стандарт"</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Пагинация -->
+        <div class="portfolio-pagination">
+            <button class="btn btn--outline">Показать ещё</button>
+        </div>
+    </div>
+</section>
+
+<!-- SEO-блок -->
+<div class="portfolio-seo">
+    <div class="container">
+        <h2>Создание сайтов для бизнеса в Санкт-Петербурге</h2>
+        <p>Специализируюсь на разработке готовых решений для малого бизнеса СПб:
+            <span class="seo-keywords">
+                    сайты для кофеен и ресурсы для салонов красоты, интернет-магазины для ИП,
+                    сайты-визитки для самозанятых, промо-сайты для стартапов, лендинги для презентаций идей инвесторам
+                </span>
+        </p>
+    </div>
+</div>
+
+<!-- Модальное окно для проектов -->
+<div class="portfolio-modal" id="projectModal">
+    <div class="portfolio-modal__content">
+        <button class="portfolio-modal__close">&times;</button>
+
+        <!-- Контент подгружается динамически -->
+        <div class="portfolio-modal__body">
+            <!-- Данные будут здесь -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+

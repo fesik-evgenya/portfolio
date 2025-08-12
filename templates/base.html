@@ -6,16 +6,18 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo/favicon.svg') }}" type="image/svg+xml">
 
     <!-- SEO-блоки -->
-    <title>{{ meta_title|default('Full-stack разработчик сайтов в СПб | Евгения Фесик') }}</title>
+    <title>{{ meta_title|default('Готовые сайты для бизнеса в СПб | Создание сайтов под ключ | Евгения Фесик') }}</title>
     <meta name="description"
-          content="{{ meta_description|default('Фрилансер full-stack разработчик (Python/JS) в Санкт-Петербурге.
-           Создаю сайты под ключ и MVP для бизнеса.') }}">
+          content="{{ meta_description|default('Купить готовый сайт для бизнеса в СПб недорого. Шаблоны сайтов для
+          кофеен, салонов красоты, ИП с быстрым запуском.') }}">
     <meta name="keywords"
-          content="{{ meta_keywords|default('разработка сайтов СПб, fullstack разработчик, Python Flask разработка,
-           JavaScript разработка') }}">
+      content="{{ meta_keywords|default('готовый сайт СПб, купить сайт Санкт-Петербург, сайт под ключ недорого СПб,
+      шаблон сайта для бизнеса, создание сайтов быстро СПб, сайт для кофейни Санкт-Петербург,
+      сайт для салона красоты СПб, сайт за 3 дня СПб, лендинг пейдж СПб, сайт-визитка СПб, сайт для ИП СПб,
+      готовый шаблон сайта, быстрый запуск сайта, кастомизация сайта') }}">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="{{ meta_title }}">
+    <meta property="og:title" content="{{ meta_title|default('Готовые сайты для бизнеса в СПб | Создание сайтов под ключ') }}">
     <meta property="og:type" content="website">
     <meta property="og:image" content="{{ url_for('static', filename='images/logo/og_image.jpg', _external=True) }}">
     <meta property="og:url" content="{{ request.url | replace('http://', 'https://') }}">
@@ -71,8 +73,8 @@
                         <li class="nav__item {% if active_page == 'index' %}nav__item--active{% endif %}">
                             <a href="{{ url_for('index') }}" class="nav__link">Главная</a>
                         </li>
-                        <li class="nav__item {% if active_page == 'services' %}nav__item--active{% endif %}">
-                            <a href="{{ url_for('services') }}" class="nav__link">Услуги</a>
+                        <li class="nav__item {% if active_page == 'solutions' %}nav__item--active{% endif %}">
+                            <a href="{{ url_for('solutions') }}" class="nav__link">Магазин решений</a>
                         </li>
                         <li class="nav__item {% if active_page == 'portfolio' %}nav__item--active{% endif %}">
                             <a href="{{ url_for('portfolio') }}" class="nav__link">Портфолио</a>
@@ -110,7 +112,7 @@
                 <h3 class="footer__heading">Навигация</h3>
                 <ul class="footer__links">
                     <li><a href="{{ url_for('index') }}" class="footer__link">Главная</a></li>
-                    <li><a href="{{ url_for('services') }}" class="footer__link">Услуги</a></li>
+                    <li><a href="{{ url_for('solutions') }}" class="footer__link">Магазин решений</a></li>
                     <li><a href="{{ url_for('portfolio') }}" class="footer__link">Портфолио</a></li>
                     <li><a href="{{ url_for('about') }}" class="footer__link">Обо мне</a></li>
                     <li><a href="{{ url_for('contacts') }}" class="footer__link">Контакты</a></li>

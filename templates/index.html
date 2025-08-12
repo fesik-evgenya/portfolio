@@ -11,13 +11,13 @@
     <div class="container">
         <div class="hero__content">
             <!-- Основной H1 страницы -->
-            <h1 class="hero__title">{{ h1 }}</h1>
+            <h1 class="hero__title">Ваш готовый сайт за 2 недели!</h1>
             <p class="hero__text">Создаю современные сайты и MVP для бизнеса — быстро, качественно, с фиксированной стоимостью</p>
             <div class="hero__cta">
                 <p class="hero__cta-text">Превращаю ваши идеи в рабочие сайты</p>
                 <div class="hero__buttons">
-                    <a href="{{ url_for('contacts') }}" class="btn btn--primary">Обсудить проект</a>
-                    <a href="{{ url_for('portfolio') }}" class="btn btn--outline">Смотреть кейсы</a>
+                    <a href="{{ url_for('solutions') }}" class="btn btn--primary">Выбрать шаблон</a>
+                    <a href="{{ url_for('portfolio') }}" class="btn btn--outline">Вдохновиться примерами</a>
                 </div>
             </div>
 
@@ -25,53 +25,119 @@
             <div class="hero__usp">
                 <div class="usp-item">
                     <i class="fas fa-rocket usp-icon"></i>
-                    <span>Стартапы и малый бизнес</span>
+                    <span>Стартапы и малый бизнес СПб</span>
                 </div>
                 <div class="usp-item">
-                    <i class="fas fa-handshake usp-icon"></i>
-                    <span>Личные встречи в СПб</span>
+                    <i class="fas fa-sync-alt usp-icon"></i>
+                    <span>Обновляйте контент сами</span>
                 </div>
                 <div class="usp-item">
-                    <i class="fas fa-ruble-sign usp-icon" ></i>
+                    <i class="fas fa-ruble-sign usp-icon"></i>
                     <span>Фиксированная стоимость</span>
+                </div>
+                 <div class="usp-item">
+                    <i class="fas fa-handshake usp-icon"></i>
+                    <span>Личные встречи в Санкт-Петербурге</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Секция услуг -->
-<section class="services" id="services">
+<!-- Секция для кого -->
+<section class="audience">
     <div class="container">
-        <h2 class="section-title">Услуги</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Сайты под ключ</h3>
-                <p>Полный цикл разработки на Python/JS</p>
-                <ul>
-                    <li>Лендинги</li>
-                    <li>Интернет-магазины</li>
-                    <li>Корпоративные сайты</li>
-                </ul>
+        <h2 class="section-title">Для кого подойдут сайты</h2>
+        <div class="audience-grid">
+            <div class="audience-card">
+                <i class="fas fa-user-tie audience-icon"></i>
+                <h3>ИП / Самозанятые</h3>
+                <p>Фотографы, коучи, юристы, косметологи</p>
             </div>
-            <div class="service-card">
-                <h3>MVP для стартапов</h3>
-                <p>Запуск за 4 недели</p>
-                <ul>
-                    <li>Прототипирование</li>
-                    <li>Быстрая разработка</li>
-                    <li>Оптимизация бюджета</li>
-                </ul>
+            <div class="audience-card">
+                <i class="fas fa-store audience-icon"></i>
+                <h3>Локальный бизнес</h3>
+                <p>Кафе, салоны, клиники, рестораны</p>
             </div>
-            <div class="service-card">
-                <h3>Техническая поддержка</h3>
-                <p>Для сайтов на Python</p>
-                <ul>
-                    <li>Исправление ошибок</li>
-                    <li>Доработка функционала</li>
-                    <li>Оптимизация скорости</li>
-                </ul>
+            <div class="audience-card">
+                <i class="fas fa-shopping-cart audience-icon"></i>
+                <h3>Мини-коммерция</h3>
+                <p>Магазины до 20 товаров, мерч</p>
             </div>
+            <div class="audience-card">
+                <i class="fas fa-lightbulb audience-icon"></i>
+                <h3>Стартапы</h3>
+                <p>MVP для проектов, сбор заявок</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Секция как это работает -->
+<section class="process">
+    <div class="container">
+        <h2 class="section-title">Как это работает</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Выбираете шаблон</h3>
+                <p>7 готовых решений для вашего бизнеса</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Подбираем функции</h3>
+                <p>Онлайн-оплата, запись, корзина и др.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Кастомизируем</h3>
+                <p>Цвета, логотип, контент</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Запускаемся!</h3>
+                <p>Ваш сайт готов через 14 дней</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Секция гарантий -->
+<section class="guarantees">
+    <div class="container">
+        <h2 class="section-title">Мои гарантии</h2>
+        <div class="guarantees-grid">
+            <div class="guarantee-card">
+                <i class="fas fa-calendar-check guarantee-icon"></i>
+                <h3>Фиксированный срок</h3>
+                <p>Ровно 14 дней от подписания договора до запуска</p>
+            </div>
+            <div class="guarantee-card">
+                <i class="fas fa-wallet guarantee-icon"></i>
+                <h3>Фиксированная стоимость</h3>
+                <p>Цена не меняется после подписания договора</p>
+            </div>
+            <div class="guarantee-card">
+                <i class="fas fa-headset guarantee-icon"></i>
+                <h3>Поддержка 14 дней</h3>
+                <p>Исправление ошибок после запуска</p>
+            </div>
+            <div class="guarantee-card">
+                <i class="fas fa-gift guarantee-icon"></i>
+                <h3>Аналитика в подарок</h3>
+                <p>Отчеты Яндекс.Метрики раз в неделю</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Секция CTA -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Готовы запустить свой сайт?</h2>
+            <p>Оставьте заявку и получите бесплатную консультацию</p>
+            <a href="{{ url_for('contacts') }}" class="btn btn--primary">Обсудить проект</a>
         </div>
     </div>
 </section>
