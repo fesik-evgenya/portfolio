@@ -1,10 +1,151 @@
 {% extends "base.html" %}
 
+{% block seo_extra %}
+    <!-- Микроразметка для страницы -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Готовые решения для бизнеса в Санкт-Петербурге",
+        "description": "Купить готовый сайт для бизнеса в СПб: решения для кофеен, салонов красоты, магазинов и фрилансеров",
+        "itemListElement": [
+            {% for solution in solutions %}
+            {
+                "@type": "ListItem",
+                "position": {{ loop.index }},
+                "item": {
+                    "@type": "Product",
+                    "name": {{ solution.name | tojson }},
+                    "description": {{ solution.short_description | tojson }},
+                    "image": "{{ url_for('static', filename=solution.image_path, _external=True) }}",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "{{ solution.price }}",
+                        "priceCurrency": "RUB"
+                    }
+                }
+            }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ]
+    }
+    </script>
+{% endblock %}
+
+{% set active_page = "solutions" %}
+
 {% block content %}
-<section class="solutions">
-    <div class="container">
-        <h1>{{ h1 }}</h1>
-        <!-- Контент магазина решений -->
-    </div>
-</section>
+<main class="solutions-page">
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="page-title" itemprop="headline">Магазин решений</h1>
+            <p class="hero-subtitle">Готовые сайты для вашего бизнеса<br>в Санкт-Петербурге с запуском за 14 дней</p>
+        </div>
+    </section>
+
+    <section class="controls-section">
+        <div class="container">
+            <!-- блок фильтров в строку -->
+            <div class="filters-container">
+                <p class="filters-title">Фильтры</p>
+                <div class="filters-row">
+                    <label class="filter-option">
+                        <input type="checkbox" name="category" value="package" checked>
+                        <span class="checkmark"></span>
+                        Пакетное решение
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="category" value="module">
+                        <span class="checkmark"></span>
+                        Дополнительный модуль
+                    </label>
+                </div>
+            </div>
+
+            <div class="sorting">
+                <label for="sortSelect" class="sort-label">Сортировать:</label>
+                <select id="sortSelect" class="sort-select">
+                    <option value="popular">По популярности</option>
+                    <option value="new">По новизне</option>
+                    <option value="price">По цене</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section class="solutions-section" aria-label="Доступные решения">
+        <div class="container">
+            {% if solutions %}
+            <div class="solutions-grid grid grid--columns">
+                {% for solution in solutions %}
+                <article class="card solution-card"
+                         itemscope itemtype="http://schema.org/Product"
+                         data-category="{{ solution.category }}">
+                    <div class="card-header">
+                        {% if solution.is_new %}
+                        <span class="solution-badge badge-new">Новинка</span>
+                        {% endif %}
+                        {% if solution.is_popular %}
+                        <span class="solution-badge badge-popular">Популярное</span>
+                        {% endif %}
+
+                        <img src="{{ url_for('static', filename=solution.image_path) }}"
+                             alt="{{ solution.name }} - пример реализации"
+                             class="solution-image"
+                             itemprop="image">
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="solution-title" itemprop="name">{{ solution.name }}</h2>
+                        <p class="solution-description" itemprop="description">
+                            {{ solution.short_description }}
+                        </p>
+
+                        <div class="solution-meta">
+                            <span class="solution-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <meta itemprop="price" content="{{ solution.price }}">
+                                <meta itemprop="priceCurrency" content="RUB">
+                                от {{ solution.price }} ₽
+                            </span>
+                            <span class="solution-delivery">
+                                <i class="fas fa-bolt"></i> Запуск за {{ solution.delivery_days }} дней
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="{{ url_for('solution_detail', id=solution.id) }}"
+                           class="btn btn--outline"
+                           aria-label="Подробнее о решении {{ solution.name }}">
+                            Подробнее
+                        </a>
+                        <a href="{{ url_for('contacts', interest=solution.name) }}"
+                           class="btn btn--primary"
+                           aria-label="Заказать решение {{ solution.name }}">
+                            Заказать
+                        </a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <i class="fas fa-box-open empty-icon"></i>
+                <h2 class="empty-title">Решения временно отсутствуют</h2>
+                <p class="empty-description">Новые решения появятся в ближайшее время</p>
+                <a href="{{ url_for('contacts') }}" class="btn btn--primary">Связаться с нами</a>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2 class="cta-title">Нужно индивидуальное решение?</h2>
+                <p class="cta-text">Разработаю уникальный сайт под ваши задачи</p>
+                <a href="{{ url_for('contacts') }}" class="btn btn--primary btn--large">Связаться со мной</a>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

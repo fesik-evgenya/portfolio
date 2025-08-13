@@ -188,7 +188,7 @@ function drawGrid() {
 
     // Настройки стиля линий сетки
     ctx.strokeStyle = 'rgba(230, 190, 255, 0.12)'; // Полупрозрачный фиолетовый
-    ctx.lineWidth = 0.3; // Тонкие линии
+    ctx.lineWidth = 0.1; // Тонкие линии
 
     // Вертикальные линии сетки
     for (let x = 0; x < canvas.width; x += gridSize) {
@@ -632,3 +632,46 @@ document.addEventListener('DOMContentLoaded', function() {
         gallery.addEventListener('mouseleave', startAutoSlide);
     }
 });
+
+/* ========== ФИЛЬТРЫ НА СТРАНИЦЕ МАГАЗИНА РЕШЕНИЙ ========== */
+ document.addEventListener('DOMContentLoaded', function() {
+        // Элементы фильтрации
+        const filterOptions = document.querySelectorAll('.filter-option input');
+        const solutionCards = document.querySelectorAll('.solution-card');
+
+        // Функция фильтрации
+        function filterSolutions() {
+            // Получаем выбранные фильтры
+            const activeFilters = Array.from(filterOptions)
+                .filter(option => option.checked)
+                .map(option => option.value);
+
+            // Перебираем все карточки
+            solutionCards.forEach(card => {
+                const cardCategory = card.dataset.category;
+
+                // Показываем карточку если:
+                // 1. Нет активных фильтров
+                // 2. Категория карточки есть в активных фильтрах
+                if (activeFilters.length === 0 || activeFilters.includes(cardCategory)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Назначаем обработчики на все чекбоксы
+        filterOptions.forEach(option => {
+            option.addEventListener('change', filterSolutions);
+        });
+
+        // Инициализация фильтрации при загрузке
+        filterSolutions();
+
+        // Сортировка (заглушка для будущей реализации)
+        document.getElementById('sortSelect').addEventListener('change', function() {
+            console.log('Выбрана сортировка:', this.value);
+            // Здесь будет реализация сортировки
+        });
+    });

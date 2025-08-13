@@ -91,6 +91,21 @@ def solutions():
                            h1="Магазин готовых решений для вашего бизнеса")
 
 
+@app.route('/api/solutions')
+def api_solutions():
+    return jsonify([
+        {
+            'id': sol.id,
+            'name': sol.name,
+            'description': sol.short_description,
+            'image': url_for('static', filename=sol.image_path),
+            'price': sol.price,
+            'delivery_days': sol.delivery_days,
+            'tags': ['new'] if sol.is_new else ['popular'] if sol.is_popular else []
+        }
+        for sol in solutions
+    ])
+
 # Роуты для пакетных решений
 @app.route('/resheniya/<package_id>')
 def package_details(package_id):
