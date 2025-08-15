@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, current_app, request
 from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.utils import secure_filename
-from app import db  # Абсолютный импорт
+
+from app import db
 from app.forms import LoginForm, AboutForm, ContactForm, SolutionForm, PortfolioForm
 from app.models import Admin, AboutContent, ContactInfo, Solution, PortfolioItem
 import os

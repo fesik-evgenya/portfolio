@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalBody.innerHTML = `
                     <div class="project-gallery">
                         ${data.images.map(img => `
-                            <img src="/static/projects/${img}" alt="${data.title}" loading="lazy">
+                            <${img} src="/projects/img" alt="${data.title}" loading="lazy">
                         `).join('')}
                     </div>
                     <h2>${data.title}</h2>
