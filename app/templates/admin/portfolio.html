@@ -1,0 +1,51 @@
+{% extends "admin/base_admin.html" %}
+
+{% block admin_content %}
+    <header class="admin-header">
+        <h1>Управление портфолио</h1>
+        <a href="{{ url_for('admin_add_portfolio') }}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Добавить проект
+        </a>
+    </header>
+
+    <section class="admin-grid-section">
+        <div class="grid-filters">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Поиск по проектам...">
+            </div>
+            <button class="btn btn-secondary">
+                <i class="fas fa-filter"></i> Фильтры
+            </button>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <img src="{{ url_for('static', filename='images/admin/project1.jpg') }}" alt="Проект">
+                    <div class="portfolio-actions">
+                        <button class="btn-icon">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon danger">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Сайт для кофейни "Aroma"</h3>
+                    <p>Лендинг для новой кофейни в центре СПб</p>
+                    <div class="portfolio-meta">
+                        <span class="category">Лендинг</span>
+                        <span class="date">12.04.2024</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Повторить для других проектов -->
+        </div>
+
+        <div class="table-pagination">
+            <button class="btn btn-outline">Загрузить еще</button>
+        </div>
+    </section>
+{% endblock %}

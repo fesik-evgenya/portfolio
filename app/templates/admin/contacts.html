@@ -1,0 +1,64 @@
+{% extends "admin/base_admin.html" %}
+
+{% block admin_content %}
+    <header class="admin-header">
+        <h1>Редактирование контактов</h1>
+    </header>
+
+    <section class="admin-form-section">
+        <form class="admin-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" value="ganef85@mail.ru">
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-phone">Телефон</label>
+                    <input type="tel" id="contact-phone" value="+7 (950) 012-40-11">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-address">Адрес</label>
+                <input type="text" id="contact-address" value="Санкт-Петербург, Невский пр. 1">
+            </div>
+
+            <div class="form-group">
+                <label>Социальные сети</label>
+                <div class="socials-container">
+                    <div class="social-item">
+                        <div class="social-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <input type="text" value="https://t.me/Fesik_Evgeniya" placeholder="Ссылка">
+                        <button class="btn-icon danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="social-item">
+                        <div class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <input type="text" value="https://github.com/fesik-evgenya" placeholder="Ссылка">
+                        <button class="btn-icon danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-plus"></i> Добавить соцсеть
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="map-code">Код карты</label>
+                <textarea id="map-code" rows="4"><iframe src="..."></iframe></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Сохранить контакты</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

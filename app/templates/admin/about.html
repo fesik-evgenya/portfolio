@@ -1,0 +1,61 @@
+{% extends "admin/base_admin.html" %}
+
+{% block admin_content %}
+    <header class="admin-header">
+        <h1>Редактирование "Обо мне"</h1>
+    </header>
+
+    <section class="admin-form-section">
+        <form class="admin-form">
+            <div class="form-group">
+                <label for="about-title">Заголовок страницы</label>
+                <input type="text" id="about-title" value="Евгения Фесик - веб-разработчик">
+            </div>
+
+            <div class="form-group">
+                <label for="about-subtitle">Подзаголовок</label>
+                <input type="text" id="about-subtitle" value="Создаю цифровые решения для бизнеса">
+            </div>
+
+            <div class="form-group">
+                <label for="about-content">Основной текст</label>
+                <textarea id="about-content" rows="8">Привет! Я веб-разработчик из Санкт-Петербурга с 5-летним опытом...</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Фотография</label>
+                <div class="file-upload">
+                    <img src="{{ url_for('static', filename='images/about_photo.png') }}" alt="Текущее фото" class="current-file">
+                    <div class="file-actions">
+                        <button type="button" class="btn btn-secondary">
+                            <i class="fas fa-upload"></i> Загрузить новое
+                        </button>
+                        <span class="file-name">about_photo.png</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Навыки</label>
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <input type="text" value="HTML/CSS" placeholder="Название навыка">
+                        <input type="range" min="0" max="100" value="95">
+                        <button class="btn-icon danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <!-- Повторить для других навыков -->
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-plus"></i> Добавить навык
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                <button type="button" class="btn btn-outline">Отменить</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

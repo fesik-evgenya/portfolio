@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="admin-container">
+        <!-- Боковое меню -->
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <i class="fas fa-cog"></i>
+                <span>Админ-панель</span>
+            </div>
+
+            <nav class="admin-nav">
+                <ul>
+                    <li class="{% if active_admin == 'dashboard' %}active{% endif %}">
+                        <a href="{{ url_for('admin_dashboard') }}">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Дашборд</span>
+                        </a>
+                    </li>
+                    <li class="{% if active_admin == 'about' %}active{% endif %}">
+                        <a href="{{ url_for('admin_about') }}">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Обо мне</span>
+                        </a>
+                    </li>
+                    <li class="{% if active_admin == 'contacts' %}active{% endif %}">
+                        <a href="{{ url_for('admin_contacts') }}">
+                            <i class="fas fa-address-book"></i>
+                            <span>Контакты</span>
+                        </a>
+                    </li>
+                    <li class="{% if active_admin == 'solutions' %}active{% endif %}">
+                        <a href="{{ url_for('admin_solutions') }}">
+                            <i class="fas fa-box-open"></i>
+                            <span>Решения</span>
+                        </a>
+                    </li>
+                    <li class="{% if active_admin == 'portfolio' %}active{% endif %}">
+                        <a href="{{ url_for('admin_portfolio') }}">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Портфолио</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="admin-footer">
+                <a href="{{ url_for('index') }}" class="btn btn-outline">
+                    <i class="fas fa-external-link-alt"></i>
+                    На сайт
+                </a>
+            </div>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="admin-main">
+            {% block admin_content %}{% endblock %}
+        </main>
+    </div>
+{% endblock %}

@@ -675,3 +675,19 @@ document.addEventListener('DOMContentLoaded', function() {
             // Здесь будет реализация сортировки
         });
     });
+
+ /* ========== АДМИН ПАНЕЛЬ ========== */
+ // Функция для предпросмотра изображений
+        function previewImage(input, previewId) {
+            const preview = document.getElementById(previewId);
+            const file = input.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.innerHTML = '<img src="' + e.target.result + '" alt="Предпросмотр">';
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }

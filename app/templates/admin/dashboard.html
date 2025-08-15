@@ -1,0 +1,48 @@
+{% extends "admin_base.html" %}
+
+{% block admin_content %}
+    <header class="admin-header">
+        <h1>Административная панель</h1>
+        <div class="admin-actions">
+            <button class="btn btn-primary">+ Добавить</button>
+        </div>
+    </header>
+
+    <section class="admin-stats">
+        <div class="stat-card">
+            <h3>Заказы</h3>
+            <p>24</p>
+        </div>
+        <div class="stat-card">
+            <h3>Пользователи</h3>
+            <p>128</p>
+        </div>
+        <div class="stat-card">
+            <h3>Доход</h3>
+            <p>84,200 ₽</p>
+        </div>
+    </section>
+
+    <section class="admin-table">
+        <h2>Последние заказы</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Клиент</th>
+                    <th>Сумма</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#1025</td>
+                    <td>Иван Петров</td>
+                    <td>12,400 ₽</td>
+                    <td><span class="status completed">Завершен</span></td>
+                </tr>
+                <!-- Остальные строки таблицы -->
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
